@@ -27,7 +27,15 @@
     );
     console.log(comment)
 
-    
+    // 3- un nouveau tableau nommé allPosts
+    const allPosts = posts.map(post => ({
+        id: post.id,
+        userName: userMap.get(post.userId)?.name || 'Unknown User',
+        title: post.title,
+        body: post.body,
+        published: true, // tous les posts sont publiés dans cet exemple
+        comments: commentsByPost.get(post.id) || []
+    }));
         
 
 }main();
