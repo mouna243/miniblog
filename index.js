@@ -53,6 +53,16 @@ async function main() {
     // 4-3 getPagePosts(offset, size = 10) qui retourne un nouveau tableau extrait du tableau allPosts à partir de offset et contenant size éléments
 
     function getPagePosts(array, offset, size = 10) {
+        
         return array.slice(offset, offset + size);
+    }
+
+        // 5 - Ecrire la fonction showPosts() qui permettra d'afficher les 10 premiers posts
+    function showPosts(postsArray = allPosts) {
+        const page = getPagePosts(postsArray, 0, 10);
+        console.log('=== 10 premiers posts ===');
+        page.forEach(post => {
+            console.log(`Post #${post.id} by ${post.userName}: "${post.title}"`);
+        });
     }
 } main();
